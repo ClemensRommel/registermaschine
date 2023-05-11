@@ -1,0 +1,22 @@
+start:
+    LOAD sum
+    JUMPLT ende
+
+    LOAD erg
+    ADD sum
+    STORE erg
+
+    LOAD sum
+    ADDI 0x-2
+    STORE sum
+
+    JUMP start
+
+ende:  
+    LOAD erg
+    PRINT
+    HALT
+
+
+erg:    15
+sum:    13

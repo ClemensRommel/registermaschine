@@ -1,0 +1,11 @@
+start:  GETC
+        PRINTC
+        EQUALI 10
+        JUMPIFZERO start
+        LOAD counter
+        ADDI 1
+        STORE counter
+        EQUALI 5
+        JUMPIFZERO start
+ende:   HALT
+counter: 0

@@ -1,0 +1,25 @@
+JUMP start
+
+data:
+    ;72 101 108 108 111 32 ;'Hello '
+    ;87 111 114 108 100 33  ;'World!'
+    
+     "Hello World!"
+
+locals:
+    pointer: data   ; pointer, mit dem die daten ausgelesen werden
+    length: 12
+
+start:
+    LOAD pointer
+    LOADIND
+    PRINTC          ; Drucke zeichen gespeicher bei pointer
+    LOAD pointer
+    ADDI 1
+    STORE pointer   ; verschiebe pointer auf nächstes element
+    LOAD pointer
+    SUBTRACTI data ; Accumulator ist jetzt der abstand vom pointer zum anfang
+    GREATER length  ; vergleiche abstand mit länge
+    JUMPIFNZERO start ; wenn wir noch nicht am ende sind fangen wir wieder von vorne an
+
+    HALT ; beenden
